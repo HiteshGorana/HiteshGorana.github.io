@@ -7,28 +7,28 @@ modified: 8-15-2017
 comments: false
 ---
 
-This is a memo of the tools that I commonly use but often forget where to find.
+[comment]: <> (This is a memo of the tools that I commonly use but often forget where to find.)
 
-### Online Compiler and Debugger
+[comment]: <> (### Online Compiler and Debugger)
 
-#### [OnlineGDB](https://www.onlinegdb.com/)
+[comment]: <> (#### [OnlineGDB]&#40;https://www.onlinegdb.com/&#41;)
 
-GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP.
-
-
-### Front-End Design and Development
-
-#### [CodePen](https://codepen.io/pen/)
-
-Online CSS/HTML/JS Previewer.
+[comment]: <> (GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP.)
 
 
-### SSH and FTP Tools
+[comment]: <> (### Front-End Design and Development)
 
-#### [MobaXterm](https://mobaxterm.mobatek.net/)
+[comment]: <> (#### [CodePen]&#40;https://codepen.io/pen/&#41;)
 
-Extremely powerful SSH/FTP tool for Windows.
+[comment]: <> (Online CSS/HTML/JS Previewer.)
 
-#### [FileZilla](https://filezilla-project.org/)
 
-FTP tool for Linux.
+[comment]: <> (### SSH and FTP Tools)
+
+[comment]: <> (#### [MobaXterm]&#40;https://mobaxterm.mobatek.net/&#41;)
+
+[comment]: <> (Extremely powerful SSH/FTP tool for Windows.)
+
+[comment]: <> (#### [FileZilla]&#40;https://filezilla-project.org/&#41;)
+
+[comment]: <> (FTP tool for Linux.)
