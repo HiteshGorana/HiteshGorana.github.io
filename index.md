@@ -4,7 +4,7 @@ title: Hitesh Gorana
 description: "Hitesh Gorana's Website"
 tags: [Jekyll, theme, responsive, blog, template
 image:
-  feature: /images/website_images/Awesom-Data-Science-shadow.png
+  feature: /images/website_images/Optimized-website_teaser.jpg
 ---
 
 ### Who am I
