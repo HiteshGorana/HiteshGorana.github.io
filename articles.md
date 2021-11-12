@@ -1,6 +1,6 @@
 ---
 layout: post-index
-permalink: articles/
+permalink: /articles/
 title: Articles
 tagline: A List of Article Posts
 tags: [article]
