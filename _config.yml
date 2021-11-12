@@ -29,19 +29,19 @@ bing_verify:
 # For external links add external: true
 links:
   - title: Curriculum
-    url: cv
+    url: /cv
   - title: Blog
-    url: blog
+    url: /blog
   - title: Articles
-    url: articles
+    url: /articles
   - title: Projects
-    url: projects
+    url: /projects
   - title: Readings
-    url: readings
+    url: /readings
   - title: Publications
-    url: publications
+    url: /publications
   - title: Tools
-    url: tools
+    url: /tools
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Asia/Kolkata
