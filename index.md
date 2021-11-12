@@ -2,7 +2,9 @@
 layout: home2
 title: Hitesh Gorana
 description: "Hitesh Gorana's Website"
-tags: [Jekyll, theme, responsive, blog, template
+tags: [Jekyll, theme, responsive, blog, template]
+image:
+    feature: /images/website_images/Optimized-website_teaser.jpg
 ---
 
 ### Who am I
