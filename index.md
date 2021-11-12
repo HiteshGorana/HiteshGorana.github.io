@@ -11,10 +11,13 @@ tags: [Jekyll, theme, responsive, blog, template]
     </style>
 </head>
 
-<figure>
-  <img src="{{ site.url }}/images/author_images/Optimized-Lei-Smoky_Mountain.JPG"/>
-  <figcaption>Lei Mao at Smoky Mountain in 2015</figcaption>
-</figure>
+[comment]: <> (<figure>)
+
+[comment]: <> (  <img src="{{ site.url }}/images/author_images/Optimized-Lei-Smoky_Mountain.JPG"/>)
+
+[comment]: <> (  <figcaption>Lei Mao at Smoky Mountain in 2015</figcaption>)
+
+[comment]: <> (</figure>)
 
 ### Who am I
 
