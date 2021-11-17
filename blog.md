@@ -4,7 +4,7 @@ permalink: /blog/
 title: Blog
 tagline: A List of Blog Posts
 tags: [blog]
-comments: true
+comments: false
 ---
 
 {% for post in site.categories.blog %}
