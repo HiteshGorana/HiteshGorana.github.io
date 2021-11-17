@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post-index
 permalink: /blog/
 title: Blog
 tagline: A List of Blog Posts
