@@ -12,7 +12,6 @@ tags: [Jekyll, theme, responsive, blog, template]
 </head>
 
 ### Who am I
-I also graduated with a bachelor’s degree in Biotechnology from Dalian University of Technology in China
 My name is Hitesh Gorana.I have graduated with a bachelor’s degree in information technology from [Techno India NJR Institute of Technology](https://www.technonjr.org/) in India. My research interests are mainly in the areas of machine learning and artificial intelligence, and partly in the area of data science. 
 
 <br />
