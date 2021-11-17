@@ -3,7 +3,6 @@ layout: home2
 title: Hitesh Gorana
 description: "Hitesh Gorana's Website"
 tags: [Jekyll, theme, responsive, blog, template]
-
 ---
 
 <head>
@@ -11,11 +10,6 @@ tags: [Jekyll, theme, responsive, blog, template]
         figure{text-align: center;}
     </style>
 </head>
-
-<figure>
-  <img src="{{ site.url }}/images/author_images/Optimized-Lei-Smoky_Mountain.JPG"/>
-  <figcaption>Lei Mao at Smoky Mountain in 2015</figcaption>
-</figure>
 
 ### Who am I
 
