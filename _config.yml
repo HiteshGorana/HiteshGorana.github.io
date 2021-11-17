@@ -38,8 +38,8 @@ links:
     url: /projects/
   - title: Readings
     url: /readings/
-  - title: Publications
-    url: /publications/
+#  - title: Publications
+#    url: /publications/
   - title: Tools
     url: /tools/
 
