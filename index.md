@@ -16,13 +16,11 @@ My name is Hitesh Gorana.I have graduated with a bachelor’s degree in informat
 
 <br />
 
-I also like to learning new Technology Every month and create some small projects using that technology (1 hr daily)   
-
 ### About This Site
 
 The main purposes of this website are listed here:
 * Discuss the technical details of machine learning and computer science theories
-* Discuss what technology I did this Month with code shared on GitHub 
+* Discuss what technology I learned recently with sample code shared on GitHub 
 * Record my personal achievements
 
 ### Contact Me
