@@ -1,27 +1,27 @@
-title:            Hitesh Gorana's Website
+title:            Lei Mao's Website
 description:      Welcome to my site.
 # Your site's domain goes here. Leave localhost server or blank when working locally.
-url:              https://hiteshgorana.github.io/
+url:              https://leimao.github.io
 #http://localhost:5000
 
-disqus_shortname: HiteshGorana-github-io
+disqus_shortname: leimao-github-io
 
 # Owner/author information
 owner:
-  name:           Hitesh Gorana
-  avatar:         /author_images/42089577.png
+  name:           Lei Mao
+  avatar:         /author_images/Lei-Bio-Medium.jpg
   bio:            Machine Learning, Artificial Intelligence, Data Science. On the Move.
-  email:          to.hitesh.gorana@gmail.com
+  email:          dukeleimao@gmail.com
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
   twitter: 
-  linkedin: hiteshgorana
+  linkedin: lei-mao
   google_scholar: 
   google_plus: 
-  github: HiteshGorana
-  facebook:
+  github: leimao
+  facebook: dukeleimao
 # Analytics and webmaster tools stuff goes here
-google_analytics:
-google_verify:
+google_analytics: UA-105680508-1
+google_verify: KFWZJ6GsxCUxQRDDrkkQJ2jgRDVUdgUbTMXXltDss84
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:
 
@@ -29,22 +29,22 @@ bing_verify:
 # For external links add external: true
 links:
   - title: Curriculum
-    url: /cv
+    url: /cv/
   - title: Blog
-    url: /blog
+    url: /blog/
   - title: Articles
-    url: /articles
+    url: /articles/
   - title: Projects
-    url: /projects
+    url: /projects/
   - title: Readings
-    url: /readings
+    url: /readings/
   - title: Publications
-    url: /publications
+    url: /publications/
   - title: Tools
-    url: /tools
+    url: /tools/
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    Asia/Kolkata
+timezone:    America/Chicago
 future:      true
 #pygments:    true
 highlighter: rouge
@@ -53,7 +53,7 @@ kramdown:
   extensions: ["strikethrough"]
   
 # https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink:   :categories/:title/
+permalink:   /:categories/:title/
 
 kramdown:
   auto_ids: true
