@@ -6,7 +6,17 @@ tagline: A List of Reading Posts
 tags: [readings]
 comments: false
 ---
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-115EH4SYWR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
+      gtag('config', 'G-115EH4SYWR');
+</script>
+</head>
 {% for post in site.categories.reading %}
 
   {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
