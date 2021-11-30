@@ -9,6 +9,15 @@ tags: [Jekyll, theme, responsive, blog, template]
     <style type="text/css">
         figure{text-align: center;}
     </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-115EH4SYWR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-115EH4SYWR');
+</script>
 </head>
 
 ### Who am I
