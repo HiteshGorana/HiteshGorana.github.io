@@ -6,7 +6,17 @@ tags: [tools]
 modified: 8-15-2017
 comments: false
 ---
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-115EH4SYWR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
+      gtag('config', 'G-115EH4SYWR');
+</script>
+</head>
 This is a memo of the tools that I commonly use but often forget where to find.
 
 ### Online Compiler and Debugger
