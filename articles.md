@@ -6,6 +6,17 @@ tagline: A List of Article Posts
 tags: [article]
 comments: false
 ---
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-115EH4SYWR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-115EH4SYWR');
+</script>
+</head>
 
 {% for post in site.categories.article %}
 
