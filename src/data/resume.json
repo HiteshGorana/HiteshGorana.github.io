@@ -148,6 +148,62 @@
             ]
         }
     ],
+    "interests": [
+        {
+            "name": "Agentic Systems",
+            "keywords": [
+                "Autonomous Agents",
+                "Multi-Agent Orchestration",
+                "Reasoning Loops",
+                "Tool Use"
+            ]
+        },
+        {
+            "name": "Context Engineering",
+            "keywords": [
+                "Long-context Windows",
+                "Neural Memory Systems",
+                "State Management",
+                "Retrieval Optimization"
+            ]
+        },
+        {
+            "name": "Vibe Coding",
+            "keywords": [
+                "Intuitive AI Interfaces",
+                "Flow State Development",
+                "AI-First UX/UI",
+                "Emotional Context"
+            ]
+        },
+        {
+            "name": "RAG & Hybrid Search",
+            "keywords": [
+                "Vector Databases",
+                "Knowledge Graphs",
+                "Semantic Re-ranking",
+                "Hybrid Retrieval"
+            ]
+        },
+        {
+            "name": "AI Infrastructure",
+            "keywords": [
+                "Model Serving (vLLM)",
+                "Quantization",
+                "GPU Orchestration",
+                "High-Performance Kernels"
+            ]
+        },
+        {
+            "name": "Low-level Engineering",
+            "keywords": [
+                "Rust",
+                "Zero-cost Abstractions",
+                "Memory Safety",
+                "Assembly Optimization"
+            ]
+        }
+    ],
     "awards": [
         {
             "title": "Kaggle Competitions",

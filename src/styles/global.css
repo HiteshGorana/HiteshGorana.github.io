@@ -552,6 +552,56 @@ footer {
     font-size: 0.9rem;
 }
 
+/* Interests */
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.interest-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.interest-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
+}
+
+.interest-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--heading-color);
+}
+
+.interest-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.interest-tag {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid var(--card-border);
+    transition: all 0.2s;
+}
+
+.interest-tag:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    background: rgba(59, 130, 246, 0.1);
+}
+
 /* Responsive */
 @media (max-width: 968px) {
     .container {

@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import resume from '../data/resume.json';
 
-const { basics, education, work, skills, awards, projects } = resume;
+const { basics, education, work, skills, interests, awards, projects } = resume;
 ---
 
 <!DOCTYPE html>
@@ -31,6 +31,7 @@ const { basics, education, work, skills, awards, projects } = resume;
                 <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
                 <a href="#skills">Skills</a>
+                <a href="#interests">Interests</a>
                 <a href="#contact">Contact</a>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
                     <i class="fas fa-moon"></i>
@@ -141,6 +142,25 @@ const { basics, education, work, skills, awards, projects } = resume;
                         <div class="skill-tags">
                             {category.keywords.map(keyword => (
                             <span class="skill-tag">{keyword}</span>
+                            ))}
+                        </div>
+                    </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- Interests Section -->
+        <section id="interests">
+            <div class="container">
+                <h2>Interests & Philosophy</h2>
+                <div class="interests-grid">
+                    {interests.map(interest => (
+                    <div class="interest-card">
+                        <h3>{interest.name}</h3>
+                        <div class="interest-tags">
+                            {interest.keywords.map(keyword => (
+                            <span class="interest-tag">{keyword}</span>
                             ))}
                         </div>
                     </div>
