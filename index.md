@@ -1,5 +1,5 @@
 ---
-layout: home2
+layout: portfolio
 title: Hitesh Gorana
 description: "Hitesh Gorana's Website"
 tags: [Jekyll, theme, responsive, blog, template]

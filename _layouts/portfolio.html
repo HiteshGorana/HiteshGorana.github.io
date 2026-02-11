@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.data.resume.basics.name }} - {{ site.data.resume.basics.label }}</title>
+    <meta name="description"
+        content="{{ site.data.resume.basics.label }} based in {{ site.data.resume.basics.location.city }}, {{ site.data.resume.basics.location.country }}">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ " /assets/css/portfolio.css" | relative_url }}">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-115EH4SYWR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-115EH4SYWR');
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="/" class="logo">{{ site.data.resume.basics.name }}</a>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="about" class="hero">
+            <div class="container">
+                <h1>Hello, I'm <br>{{ site.data.resume.basics.name }}</h1>
+                <p>
+                    {{ site.data.resume.basics.label }} based in {{ site.data.resume.basics.location.city }}, {{
+                    site.data.resume.basics.location.country }}.<br>
+                    Specializing in Machine Learning, AI, and Full Stack Development.
+                </p>
+                <div class="social-links">
+                    <a href="mailto:{{ site.data.resume.basics.email }}" class="social-btn">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                    {% for profile in site.data.resume.basics.profiles %}
+                    <a href="{{ profile.url }}" target="_blank" class="social-btn">
+                        <i class="fab fa-{{ profile.network | downcase }}"></i> {{ profile.network }}
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <div class="container">
+                <h2>Experience</h2>
+                <div class="timeline">
+                    {% for job in site.data.resume.work %}
+                    <div class="timeline-item">
+                        <div class="job-header">
+                            <span class="job-title">{{ job.position }}</span>
+                            <span class="job-company">@ {{ job.company }}</span>
+                            <span class="job-meta">{{ job.startDate }} — {{ job.endDate }} | {{ job.location }}</span>
+                        </div>
+                        <div class="job-summary">
+                            {{ job.summary | markdownify }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="container">
+                <h2>Selected Projects</h2>
+                <div class="project-grid">
+                    {% for project in site.data.resume.projects %}
+                    <div class="project-card">
+                        <h3 class="project-title">
+                            <a href="{{ project.url }}" target="_blank">{{ project.name }} <i
+                                    class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        </h3>
+                        <p class="project-tech">{{ project.tech }}</p>
+                        <p>{{ project.summary }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="container">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    {% for category in site.data.resume.skills %}
+                    <div class="skill-category">
+                        <h3>{{ category.name }}</h3>
+                        <div class="skill-tags">
+                            {% for keyword in category.keywords %}
+                            <span class="skill-tag">{{ keyword }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Awards Section -->
+        <section id="awards">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+                    <div>
+                        <h2>Education</h2>
+                        {% for edu in site.data.resume.education %}
+                        <div style="margin-bottom: 2rem;">
+                            <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">{{ edu.institution }}</h3>
+                            <p style="color: var(--accent-color);">{{ edu.area }} ({{ edu.studyType }})</p>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">{{ edu.startDate }} — {{ edu.endDate }} · {{
+                                edu.location }}</p>
+                            <ul style="margin-top: 1rem; padding-left: 1.2rem; font-size: 0.95rem;">
+                                {% for achievement in edu.achievements %}
+                                <li>{{ achievement }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div>
+                        <h2>Awards & Honors</h2>
+                        {% for award in site.data.resume.awards %}
+                        <div class="award-item">
+                            <h4 style="margin-bottom: 0.5rem; font-size: 1rem;">{{ award.title }}</h4>
+                            <p style="font-size: 0.9rem;">{{ award.summary }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; {{ site.time | date: '%Y' }} {{ site.data.resume.basics.name }}. Built with Jekyll.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{{ " /assets/js/main.js" | relative_url }}"></script>
+</body>
+
+</html>
