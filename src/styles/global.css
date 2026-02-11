@@ -87,6 +87,13 @@ header {
 .nav-links {
     display: flex;
     gap: 20px;
+    align-items: center;
+}
+
+.theme-toggle {
+    margin-left: 10px;
+    padding-left: 15px;
+    border-left: 1px solid var(--border-color);
 }
 
 .nav-links a {
@@ -145,6 +152,21 @@ header {
     transform: translateY(-2px);
     border-color: var(--accent-color);
     text-decoration: none;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    transition: color 0.2s;
+}
+
+.theme-toggle:hover {
+    color: var(--accent-color);
 }
 
 /* Section Common */
