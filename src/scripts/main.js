@@ -80,3 +80,21 @@ themeToggle.addEventListener('click', () => {
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     applyTheme(newTheme);
 });
+
+// Typewriter Effect
+const typeWriterElement = document.getElementById('typewriter');
+if (typeWriterElement) {
+    const text = "Hello I am Hitesh, I build Agentic AI Systems for Future.";
+    let i = 0;
+
+    setTimeout(() => {
+        function type() {
+            if (i < text.length) {
+                typeWriterElement.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(type, 50); // Typing speed
+            }
+        }
+        type();
+    }, 3000); // Start after other animations
+}

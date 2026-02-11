@@ -42,22 +42,51 @@ const { basics, education, work, skills, awards, projects } = resume;
     <main>
         <!-- Hero Section -->
         <section id="about" class="hero">
-            <div class="container">
-                <h1>Hello, I'm <br>{basics.name}</h1>
-                <p>
-                    {basics.label} with <strong>{basics.totalExperience}</strong> of experience.<br>
-                    Based in {basics.location.city}, {basics.location.country}.<br>
-                    Specializing in Machine Learning, AI, and Full Stack Development.
-                </p>
-                <div class="social-links">
-                    <a href={`mailto:${basics.email}`} class="social-btn">
-                        <i class="fas fa-envelope"></i> Email
-                    </a>
-                    {basics.profiles.map(profile => (
-                    <a href={profile.url} target="_blank" class="social-btn">
-                        <i class={`fab fa-${profile.network.toLowerCase()}`}></i> {profile.network}
-                    </a>
-                    ))}
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>Hello, I'm <br>{basics.name}</h1>
+                    <p>
+                        {basics.label} with <strong>{basics.totalExperience}</strong> of experience.<br>
+                        Based in {basics.location.city}, {basics.location.country}.<br>
+                        Specializing in Machine Learning, AI, and Full Stack Development.
+                    </p>
+                    <div class="social-links">
+                        <a href={`mailto:${basics.email}`} class="social-btn">
+                            <i class="fas fa-envelope"></i> Email
+                        </a>
+                        {basics.profiles.map(profile => (
+                        <a href={profile.url} target="_blank" class="social-btn">
+                            <i class={`fab fa-${profile.network.toLowerCase()}`}></i> {profile.network}
+                        </a>
+                        ))}
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <div class="terminal-dot red"></div>
+                            <div class="terminal-dot yellow"></div>
+                            <div class="terminal-dot green"></div>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="code-line">
+                                <span class="prompt">$</span> <span class="cmd">cargo run --release --bin leo</span>
+                            </div>
+                            <div class="code-line output">
+                                <span class="info">[INFO]</span> Initializing Leo AI Agent...
+                            </div>
+                            <div class="code-line output">
+                                <span class="success">[SUCCESS]</span> Connected to Noteefy Cloud
+                            </div>
+                            <div class="code-line output">
+                                <span class="info">[INFO]</span> Loading Neural Memory...
+                            </div>
+                            <div class="code-line typing-line">
+                                <span class="prompt">></span> <span id="typewriter"></span><span class="cursor">_</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
