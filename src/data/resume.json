@@ -1,0 +1,219 @@
+{
+    "basics": {
+        "name": "Hitesh Gorana",
+        "label": "Software Engineer",
+        "totalExperience": "5+ Years",
+        "email": "hitesh.gorana.tech@gmail.com",
+        "phone": "+91-823-372-3331",
+        "location": {
+            "city": "Bengaluru",
+            "country": "India"
+        },
+        "profiles": [
+            {
+                "network": "LinkedIn",
+                "username": "hiteshgorana",
+                "url": "https://www.linkedin.com/in/hiteshgorana"
+            },
+            {
+                "network": "GitHub",
+                "username": "hiteshgorana",
+                "url": "https://github.com/hiteshgorana"
+            }
+        ]
+    },
+    "education": [
+        {
+            "institution": "Techno India NJR",
+            "location": "Udaipur, India",
+            "area": "Information Technology",
+            "studyType": "B.Tech",
+            "startDate": "2016",
+            "endDate": "2020",
+            "achievements": [
+                "Kaggle Gold Medal (Top 0.1%): Ranked 11th worldwide among 9,000+ participants in SIIM-ISIC Melanoma Classification",
+                "Kaggle Silver Medal: Ranked 37th worldwide in Instant Gratification competition",
+                "Top 150 Finishes: Jigsaw Multilingual Toxic Classification (125th), LANL Earthquake Prediction (164th), NFL Big Data Bowl (167th)"
+            ]
+        }
+    ],
+    "work": [
+        {
+            "company": "Instahyre",
+            "position": "Software Development Engineer I",
+            "location": "Bengaluru, India (Remote)",
+            "startDate": "August 2024",
+            "endDate": "Present",
+            "summary": "- **Search Performance Optimization:** Architected Elasticsearch query optimizations reducing P99 latency by 60% through denormalization and migration from nested text analysis to efficient term queries, resolving matching failures for 1M+ candidate profiles\n- **Enterprise Scalability:** Redesigned recruiter management data layer to handle 10,000+ users per employer (100x scale improvement), eliminating timeout errors for Fortune 500 clients and improving system reliability to 99.9% uptime\n- **Architecture & Refactoring:** Led decomposition of monolithic 50K+ LOC \"Upload Candidates\" module into service-oriented architecture with separate Python/Django backend, React frontend, and CSS layers, reducing build times by 40%\n- **UI Performance Engineering:** Resolved critical performance bottlenecks in high-traffic Kanban board handling 10K+ candidates per job, reducing load time from 8s to 1.2s. Fixed complex race conditions in Boolean Search causing cursor position bugs\n- **Enterprise Features:** Implemented SSO integration with granular permission controls, optimized ATS integrations (Greenhouse, Lever), and built event scheduling module with calendar sync capabilities\n- **Technical Leadership:** Leading team of 3 engineers; drive sprint planning, architectural reviews, and mentor on performance optimization patterns. Personally resolved 100+ critical production bugs\n"
+        },
+        {
+            "company": "Consulting",
+            "position": "Full Stack Developer",
+            "location": "Remote",
+            "startDate": "May 2023",
+            "endDate": "April 2024",
+            "summary": "- **DevOps & Infrastructure:** Managed production infrastructure on Azure Kubernetes Service (AKS); implemented GitLab CI/CD pipelines with automated testing, reducing deployment time by 87.5% (2 hours → 15 minutes)\n- **Cost Optimization:** Reengineered web crawler architecture with resource pooling and intelligent scheduling, achieving $24K annual cost savings ($2K/month) while improving crawler success rate from 85% to 98%\n- **Event-Driven Architecture:** Integrated Apache Kafka for real-time event streaming across microservices, improving system throughput by 3x and enabling asynchronous notification delivery at scale\n- **AI Integration:** Developed OpenAI-powered chatbot for natural language search queries, integrated with React frontend and Django backend, processing 1K+ daily interactions with 92% user satisfaction\n- **Payment & Auth Systems:** Implemented Stripe payment integration with React.js and multi-channel OTP authentication (SMS/Email via Twilio), handling $50K+ monthly transactions\n- **Monorepo Architecture:** Established Nx-based monorepo with 15+ packages, standardizing development environments and reducing onboarding time from 2 days to 4 hours\n"
+        },
+        {
+            "company": "Smarter.Codes Pvt. Ltd.",
+            "position": "Backend Developer (Remote)",
+            "location": "Bengaluru, India",
+            "startDate": "2022",
+            "endDate": "2023",
+            "summary": "- **Product Leadership:** Architected and delivered high-revenue Widget product from 0→1, driving $120K annual recurring revenue (ARR) growth. Led cross-functional team of 5 engineers (2 FE, 2 BE, 1 full-stack)\n- **Cloud Infrastructure:** Designed and managed end-to-end Azure cloud infrastructure with 99.95% uptime; implemented blue-green deployments and auto-scaling policies handling 10K+ daily active users\n- **Crawler Pipeline:** Built distributed web crawling system with 200+ production crawlers; established CI/CD pipeline with automated quality gates achieving 99.5% data accuracy\n- **Microservices:** Developed event-driven microservices for email, SMS, and alert management using Python/FastAPI; integrated with VDI for automated booking workflows\n- **Cost Engineering:** Migrated MongoDB to serverless Atlas architecture, reducing infrastructure costs by $3.6K annually while improving query performance by 40%\n- **Payment Systems:** Designed reusable Stripe billing platform supporting subscriptions, one-time payments, and usage-based pricing models\n"
+        },
+        {
+            "company": "Obbserv Online Services Pvt. Ltd.",
+            "position": "Python Developer (Remote)",
+            "location": "Udaipur, India",
+            "startDate": "2021",
+            "endDate": "2022",
+            "summary": "- Built FastAPI-based Crawl+ service on DigitalOcean for high-speed URL extraction and SEO analysis, processing 100K+ pages daily\n- Developed Dashboard API with automated Google Data Studio integration, reducing client reporting time by 75%\n- Created Sideaudit API integrating Google PageSpeed Insights and Search Console APIs for automated accessibility audits\n"
+        },
+        {
+            "company": "Fusion Business Solutions Pvt. Ltd.",
+            "position": "Trainee Associate (Office)",
+            "location": "Udaipur, India",
+            "startDate": "2020",
+            "endDate": "2021",
+            "summary": "- Developed route optimization system using Google OR-Tools and Distance Matrix API, reducing transportation costs by 18%\n"
+        }
+    ],
+    "skills": [
+        {
+            "name": "Programming Languages",
+            "keywords": [
+                "Python",
+                "JavaScript",
+                "TypeScript",
+                "Ruby",
+                "Rust",
+                "Node.js"
+            ]
+        },
+        {
+            "name": "Backend Frameworks",
+            "keywords": [
+                "Django",
+                "FastAPI",
+                "Flask",
+                "Express.js",
+                "Ruby on Rails"
+            ]
+        },
+        {
+            "name": "Frontend",
+            "keywords": [
+                "React.js",
+                "Next.js",
+                "HTML5",
+                "CSS3"
+            ]
+        },
+        {
+            "name": "Databases",
+            "keywords": [
+                "PostgreSQL",
+                "MongoDB",
+                "MySQL",
+                "Redis",
+                "Elasticsearch"
+            ]
+        },
+        {
+            "name": "Cloud & DevOps",
+            "keywords": [
+                "AWS (EC2, S3, Lambda)",
+                "Azure (AKS, Functions)",
+                "GCP",
+                "Kubernetes",
+                "Docker",
+                "GitLab CI/CD",
+                "GitHub Actions"
+            ]
+        },
+        {
+            "name": "Tools & Technologies",
+            "keywords": [
+                "Apache Kafka",
+                "Auth0",
+                "Stripe",
+                "GraphQL",
+                "Cypress",
+                "Git",
+                "Pandas",
+                "NumPy",
+                "Keras",
+                "OR-Tools"
+            ]
+        }
+    ],
+    "awards": [
+        {
+            "title": "Kaggle Competitions",
+            "summary": "Gold Medal (11th/9000+ worldwide, SIIM-ISIC Melanoma), Silver Medal (37th worldwide, Instant Gratification)"
+        },
+        {
+            "title": "Machine Learning",
+            "summary": "Top 150 finishes in Jigsaw Multilingual Toxic Classification, LANL Earthquake Prediction, NFL Big Data Bowl"
+        },
+        {
+            "title": "Analytics",
+            "summary": "Ranked 40th nationally in WNS Analytics Wizard 2019 (Analytics Vidhya)"
+        },
+        {
+            "title": "Endorsements",
+            "summary": "Endorsed by Luca Massaron (Kaggle Grandmaster, O'Reilly Author) and industry professionals on LinkedIn"
+        }
+    ],
+    "projects": [
+        {
+            "name": "nanocode - Agentic Coding Assistant",
+            "url": "https://github.com/HiteshGorana/nanocode",
+            "summary": "Local-first, agentic coding assistant built in Rust. Features role-based intelligence (Architect, Coder, QA), native toolchain, and smart context pruning. Runs entirely on-device via Ollama.",
+            "tech": "Rust, Ollama, Regex, Rustyline, Agentic Architecture"
+        },
+        {
+            "name": "Leo - AI Personal Assistant",
+            "url": "https://github.com/HiteshGorana/Leo",
+            "summary": "Ultra-lightweight AI Personal Assistant designed to be your own personal companion on any OS. Runs locally or connects to powerful LLMs like Gemini.",
+            "tech": "Rust, Gemini API, OAuth, Vector Store"
+        },
+        {
+            "name": "Mach - HTTP Load Tester",
+            "url": "https://github.com/HiteshGorana/mach",
+            "summary": "Ultra-fast HTTP load tester written in C with hand-optimized Assembly (ARM64/x86_64). Features raw POSIX sockets for extreme performance.",
+            "tech": "C, Assembly, OpenSSL, POSIX Threads"
+        },
+        {
+            "name": "Agent Brain - Memory Module",
+            "url": "https://github.com/HiteshGorana/agent-brain",
+            "summary": "Sophisticated memory system for AI agents with salience gating, short-term buffer, sleep consolidation, and multi-provider support.",
+            "tech": "TypeScript, SQLite, OpenAI, Google Gemini, Vector Search"
+        },
+        {
+            "name": "Instahyre - AI Talent Platform",
+            "url": "https://www.instahyre.com",
+            "summary": "Enterprise recruitment SaaS serving 5000+ companies. Developed core search engine (Elasticsearch), scheduler module, and InstaMatch AI sourcing.",
+            "tech": "Python, Django, Elasticsearch, React, Redis, PostgreSQL"
+        },
+        {
+            "name": "Noteefy",
+            "url": "https://noteefy.app",
+            "summary": "Real-time notification system for golf course bookings. Built embedded widget, multi-tenant architecture supporting 50+ courses, and AI chatbot.",
+            "tech": "React, GraphQL, Python, FastAPI, MongoDB, Azure, Kubernetes"
+        },
+        {
+            "name": "Studio+ Analytics Dashboard",
+            "url": "https://studio.opositive.io",
+            "summary": "Real-time growth tracking dashboard with Google Analytics integration.",
+            "tech": "React, Python, FastAPI, DigitalOcean"
+        },
+        {
+            "name": "Tribe+ Backlink Platform",
+            "url": "https://tribe.opositive.io",
+            "summary": "Scalable SEO backlink database with filtering and export capabilities.",
+            "tech": "React, Python, FastAPI, PostgreSQL"
+        }
+    ]
+}
