@@ -1,8 +1,13 @@
 ---
 import '../styles/global.css';
+import { getCollection } from 'astro:content';
 import resume from '../data/resume.json';
 
 const { basics, education, work, skills, interests, awards, projects } = resume;
+const recentPosts = (await getCollection('blog'))
+    .filter(post => !post.data.draft)
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    .slice(0, 3);
 ---
 
 <!DOCTYPE html>
@@ -20,20 +25,26 @@ const { basics, education, work, skills, interests, awards, projects } = resume;
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <a class="skip-link" href="#about">Skip to content</a>
     <header class="site-header">
         <div class="container nav-container">
             <a href="/" class="logo">{basics.name}</a>
-            <nav class="nav-links" aria-label="Primary">
-                <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#interests">Interests</a>
-                <a href="#contact">Contact</a>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                    <i class="fas fa-circle-half-stroke"></i>
-                </button>
-            </nav>
+            <div class="nav-shell">
+                <nav class="nav-links nav-links-main" aria-label="Primary">
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#interests">Interests</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                <div class="nav-actions">
+                    <a href="/blog" class="nav-cta">Blog</a>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-circle-half-stroke"></i>
+                    </button>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -47,6 +58,7 @@ const { basics, education, work, skills, interests, awards, projects } = resume;
                         {basics.label} with <strong>{basics.totalExperience}</strong> of experience based in {basics.location.city}, {basics.location.country}.
                         I build systems across machine learning, AI, backend engineering, and product-facing software.
                     </p>
+                    <p class="intro-note">Focused on high-signal product work: search, automation, performance, and applied AI.</p>
 
                     <div class="hero-meta">
                         <div class="meta-card">
@@ -106,6 +118,7 @@ const { basics, education, work, skills, interests, awards, projects } = resume;
                             <span class="metric-label">Projects</span>
                         </div>
                     </div>
+                    <p class="panel-caption">Use the sections above to jump directly to work history, project evidence, and technical depth.</p>
                 </aside>
             </div>
         </section>
@@ -127,6 +140,7 @@ const { basics, education, work, skills, interests, awards, projects } = resume;
                                 </div>
                                 <p class="job-meta">{job.startDate} — {job.endDate} · {job.location}</p>
                             </div>
+                            <p class="job-summary-lead">A concise summary of the impact delivered in this role.</p>
                             <ul class="bullet-list">
                                 {job.summary.split('\n').map(line => line.trim()).filter(Boolean).map(line => (
                                     <li set:html={line.replace(/^- /, '').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}></li>
@@ -240,6 +254,33 @@ const { basics, education, work, skills, interests, awards, projects } = resume;
                 </div>
             </div>
         </section>
+
+        <section id="blog" class="section-shell">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow">06 · Blog</p>
+                    <h2>Writing and notes</h2>
+                    <p>Recent posts appear automatically from Markdown files in `src/content/blog/`.</p>
+                </div>
+                <div class="blog-list">
+                    {recentPosts.length > 0 ? recentPosts.map(post => (
+                        <article class="blog-card">
+                            <p class="card-kicker">{post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</p>
+                            <h3><a href={`/blog/${post.slug}`}>{post.data.title}</a></h3>
+                            <p>{post.data.description}</p>
+                        </article>
+                    )) : (
+                        <article class="blog-card">
+                            <h3>No posts yet</h3>
+                            <p>Add a Markdown file to `src/content/blog/` to publish the first entry.</p>
+                        </article>
+                    )}
+                </div>
+                <div class="blog-footer-link">
+                    <a href="/blog" class="button-link">View all posts</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer id="contact" class="site-footer section-shell">
@@ -252,7 +293,7 @@ const { basics, education, work, skills, interests, awards, projects } = resume;
                 <a href={`mailto:${basics.email}`}>{basics.email}</a>
                 <a href={`tel:${basics.phone}`}>{basics.phone}</a>
             </div>
-            <p class="copyright">&copy; {new Date().getFullYear()} {basics.name}. Built with Astro.</p>
+            <p class="copyright">&copy; {new Date().getFullYear()} {basics.name}.</p>
         </div>
     </footer>
 

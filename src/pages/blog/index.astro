@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import '../../styles/global.css';
+
+const posts = (await getCollection('blog'))
+    .filter(post => !post.data.draft)
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <meta name="description" content="Notes, essays, and updates from Hitesh Gorana.">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="/" class="logo">Hitesh Gorana</a>
+            <div class="nav-shell">
+                <nav class="nav-links nav-links-main" aria-label="Primary">
+                    <a href="/">Home</a>
+                </nav>
+                <div class="nav-actions">
+                    <a href="/blog" class="nav-cta" aria-current="page">Blog</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="section-shell">
+        <div class="container">
+            <div class="section-head">
+                <p class="eyebrow">Blog</p>
+                <h1>Writing and notes</h1>
+                <p>Short posts, technical notes, and project updates. Add a Markdown file and it appears here automatically.</p>
+            </div>
+
+            <div class="blog-list">
+                {posts.map(post => (
+                    <article class="blog-card">
+                        <p class="card-kicker">{post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</p>
+                        <h2><a href={`/blog/${post.slug}`}>{post.data.title}</a></h2>
+                        <p>{post.data.description}</p>
+                        {post.data.tags.length > 0 && (
+                            <div class="skill-tags">
+                                {post.data.tags.map(tag => (
+                                    <span class="skill-tag">{tag}</span>
+                                ))}
+                            </div>
+                        )}
+                    </article>
+                ))}
+            </div>
+        </div>
+    </main>
+</body>
+</html>

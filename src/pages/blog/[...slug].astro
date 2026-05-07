@@ -1,0 +1,213 @@
+---
+import { getCollection, render } from 'astro:content';
+import '../../styles/global.css';
+
+export async function getStaticPaths() {
+    const posts = await getCollection('blog');
+
+    return posts
+        .filter(post => !post.data.draft)
+        .map(post => ({
+            params: { slug: post.slug },
+            props: { post },
+        }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{post.data.title}</title>
+    <meta name="description" content={post.data.description}>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="/" class="logo">Hitesh Gorana</a>
+            <div class="nav-shell">
+                <nav class="nav-links nav-links-main" aria-label="Primary">
+                    <a href="/">Home</a>
+                </nav>
+                <div class="nav-actions">
+                    <div class="reader-toolbar reader-toolbar-inline" aria-label="Reading tools">
+                        <div class="reader-group" role="group" aria-label="Text size">
+                            <span class="reader-label">Text</span>
+                            <button type="button" class="reader-btn" data-reader-action="font-down" aria-label="Decrease text size">A-</button>
+                            <button type="button" class="reader-btn" data-reader-action="font-reset" aria-label="Reset text size">A</button>
+                            <button type="button" class="reader-btn" data-reader-action="font-up" aria-label="Increase text size">A+</button>
+                        </div>
+                        <div class="reader-group" role="group" aria-label="Reading width">
+                            <span class="reader-label">Width</span>
+                            <button type="button" class="reader-btn" data-reader-width="narrow">Narrow</button>
+                            <button type="button" class="reader-btn" data-reader-width="comfortable">Comfortable</button>
+                            <button type="button" class="reader-btn" data-reader-width="wide">Wide</button>
+                        </div>
+                    </div>
+                    <a href="/blog" class="nav-cta" aria-current="page">Blog</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="section-shell">
+        <article class="container blog-post">
+            <header class="blog-post-hero">
+                <p class="eyebrow">{post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</p>
+                <h1>{post.data.title}</h1>
+                <p class="lede">{post.data.description}</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-chip">Reading notes</span>
+                    <span class="blog-post-chip">System design</span>
+                    <span class="blog-post-chip">Flow first</span>
+                </div>
+            </header>
+            <div class="reader-progress" aria-hidden="true">
+                <div class="reader-progress-bar" id="reader-progress-bar"></div>
+            </div>
+            <div class="blog-post-content">
+                <Content />
+            </div>
+            <footer class="blog-post-footer">
+                <a href="/blog" class="button-link">Back to blog</a>
+            </footer>
+        </article>
+    </main>
+
+    <script>
+        const root = document.documentElement;
+        const storageKeys = {
+            font: 'blog-reader-font',
+            width: 'blog-reader-width',
+        };
+        const fontScaleSteps = ['0.95', '1', '1.08', '1.16'];
+        const widthMap = {
+            narrow: '72rem',
+            comfortable: '88rem',
+            wide: '100rem',
+        };
+
+        const getStored = (key, fallback) => localStorage.getItem(key) || fallback;
+
+        const applyReaderSettings = () => {
+            const font = Number.parseFloat(getStored(storageKeys.font, '1'));
+            const width = getStored(storageKeys.width, 'comfortable');
+            root.style.setProperty('--blog-font-scale', String(font));
+            root.style.setProperty('--blog-post-content-max-width', widthMap[width] || widthMap.comfortable);
+
+            document.querySelectorAll('[data-reader-width]').forEach(button => {
+                button.toggleAttribute('aria-pressed', button.getAttribute('data-reader-width') === width);
+            });
+        };
+
+        applyReaderSettings();
+
+        document.querySelectorAll('[data-reader-action]').forEach(button => {
+            button.addEventListener('click', () => {
+                const action = button.getAttribute('data-reader-action');
+                const current = Number.parseFloat(getStored(storageKeys.font, '1'));
+                const currentIndex = fontScaleSteps.indexOf(String(current));
+                let next = current;
+
+                if (action === 'font-down') {
+                    next = fontScaleSteps[Math.max(0, currentIndex - 1)] || fontScaleSteps[0];
+                }
+
+                if (action === 'font-up') {
+                    next = fontScaleSteps[Math.min(fontScaleSteps.length - 1, currentIndex + 1)] || fontScaleSteps[1];
+                }
+
+                if (action === 'font-reset') {
+                    next = '1';
+                }
+
+                localStorage.setItem(storageKeys.font, next);
+                applyReaderSettings();
+            });
+        });
+
+        document.querySelectorAll('[data-reader-width]').forEach(button => {
+            button.addEventListener('click', () => {
+                localStorage.setItem(storageKeys.width, button.getAttribute('data-reader-width') || 'comfortable');
+                applyReaderSettings();
+            });
+        });
+
+        const progressBar = document.getElementById('reader-progress-bar');
+        const updateProgress = () => {
+            if (!progressBar) return;
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const total = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = total > 0 ? Math.min(1, scrollTop / total) : 0;
+            progressBar.style.transform = `scaleX(${progress})`;
+        };
+
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        updateProgress();
+
+        const loadMermaid = () => new Promise((resolve, reject) => {
+            const existing = window.mermaid;
+            if (existing) {
+                resolve(existing);
+                return;
+            }
+
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js';
+            script.async = true;
+            script.onload = () => resolve(window.mermaid);
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+
+        const blocks = [...document.querySelectorAll('pre > code')].filter(block => {
+            const text = (block.textContent || '').trimStart();
+            return text.startsWith('flowchart')
+                || text.startsWith('graph')
+                || text.startsWith('sequenceDiagram')
+                || text.startsWith('classDiagram')
+                || text.startsWith('stateDiagram')
+                || text.startsWith('erDiagram')
+                || text.startsWith('journey')
+                || text.startsWith('gantt')
+                || text.startsWith('pie');
+        });
+
+        for (const block of blocks) {
+            const pre = block.parentElement;
+            if (!pre) continue;
+
+            const container = document.createElement('div');
+            container.className = 'mermaid-diagram';
+            container.textContent = block.textContent || '';
+            pre.replaceWith(container);
+        }
+
+        loadMermaid()
+            .then(mermaid => {
+                mermaid.initialize({
+                    startOnLoad: false,
+                    securityLevel: 'strict',
+                    theme: document.documentElement.getAttribute('data-theme') === 'ink' ? 'dark' : 'neutral',
+                    themeVariables: {
+                        fontFamily: 'Inter, system-ui, sans-serif',
+                        primaryColor: '#f4ecd8',
+                        primaryTextColor: '#262018',
+                        primaryBorderColor: '#d5c6a3',
+                        lineColor: '#8f826b',
+                        textColor: '#262018',
+                        mainBkg: '#fbf7ef',
+                        secondBkg: '#f4ecd8',
+                        tertiaryColor: '#f0e7d4',
+                    },
+                });
+                mermaid.run({ querySelector: '.mermaid-diagram' });
+            })
+            .catch(() => {});
+    </script>
+</body>
+</html>
