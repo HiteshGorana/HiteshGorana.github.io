@@ -6,27 +6,24 @@ const { basics, education, work, skills, interests, awards, projects } = resume;
 ---
 
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="paper">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{basics.name} - {basics.label}</title>
     <meta name="description" content={`${basics.label} based in ${basics.location.city}, ${basics.location.country}`}>
-    
-    <!-- Fonts -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-    <header>
+    <header class="site-header">
         <div class="container nav-container">
             <a href="/" class="logo">{basics.name}</a>
-            <nav class="nav-links">
+            <nav class="nav-links" aria-label="Primary">
                 <a href="#about">About</a>
                 <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
@@ -34,179 +31,228 @@ const { basics, education, work, skills, interests, awards, projects } = resume;
                 <a href="#interests">Interests</a>
                 <a href="#contact">Contact</a>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-circle-half-stroke"></i>
                 </button>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section id="about" class="hero">
-            <div class="container hero-content">
-                <div class="hero-text">
-                    <h1>Hello, I'm <br>{basics.name}</h1>
-                    <p>
-                        {basics.label} with <strong>{basics.totalExperience}</strong> of experience.<br>
-                        Based in {basics.location.city}, {basics.location.country}.<br>
-                        Specializing in Machine Learning, AI, and Full Stack Development.
+        <section id="about" class="hero section-shell">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">Portfolio dossier</p>
+                    <h1>{basics.name}</h1>
+                    <p class="lede">
+                        {basics.label} with <strong>{basics.totalExperience}</strong> of experience based in {basics.location.city}, {basics.location.country}.
+                        I build systems across machine learning, AI, backend engineering, and product-facing software.
                     </p>
+
+                    <div class="hero-meta">
+                        <div class="meta-card">
+                            <span class="meta-label">Focus</span>
+                            <span class="meta-value">AI systems, search, full-stack delivery</span>
+                        </div>
+                        <div class="meta-card">
+                            <span class="meta-label">Contact</span>
+                            <span class="meta-value"><a href={`mailto:${basics.email}`}>{basics.email}</a></span>
+                        </div>
+                    </div>
+
                     <div class="social-links">
-                        <a href={`mailto:${basics.email}`} class="social-btn">
-                            <i class="fas fa-envelope"></i> Email
-                        </a>
+                        <a href={`mailto:${basics.email}`} class="button-link">Email</a>
                         {basics.profiles.map(profile => (
-                        <a href={profile.url} target="_blank" class="social-btn">
-                            <i class={`fab fa-${profile.network.toLowerCase()}`}></i> {profile.network}
-                        </a>
+                            <a href={profile.url} target="_blank" rel="noreferrer" class="button-link">
+                                {profile.network}
+                            </a>
                         ))}
                     </div>
                 </div>
-                
-                <div class="hero-visual">
-                    <div class="terminal-window">
-                        <div class="terminal-header">
-                            <div class="terminal-dot red"></div>
-                            <div class="terminal-dot yellow"></div>
-                            <div class="terminal-dot green"></div>
+
+                <aside class="hero-panel">
+                    <div class="panel-header">
+                        <span>Current profile</span>
+                        <span class="panel-chip">Available for impact</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="profile-line">
+                            <span class="profile-label">Role</span>
+                            <span class="profile-value">{basics.label}</span>
                         </div>
-                        <div class="terminal-body">
-                            <div class="code-line">
-                                <span class="prompt">$</span> <span class="cmd">cargo run --release --bin leo</span>
-                            </div>
-                            <div class="code-line output">
-                                <span class="info">[INFO]</span> Initializing Leo AI Agent...
-                            </div>
-                            <div class="code-line output">
-                                <span class="success">[SUCCESS]</span> Connected to Noteefy Cloud
-                            </div>
-                            <div class="code-line output">
-                                <span class="info">[INFO]</span> Loading Neural Memory...
-                            </div>
-                            <div class="code-line typing-line">
-                                <span class="prompt">></span> <span id="typewriter"></span><span class="cursor">_</span>
-                            </div>
+                        <div class="profile-line">
+                            <span class="profile-label">Location</span>
+                            <span class="profile-value">{basics.location.city}, {basics.location.country}</span>
+                        </div>
+                        <div class="profile-line">
+                            <span class="profile-label">Experience</span>
+                            <span class="profile-value">{basics.totalExperience}</span>
+                        </div>
+                        <div class="profile-line">
+                            <span class="profile-label">Strengths</span>
+                            <span class="profile-value">Search, infra, product delivery, AI</span>
                         </div>
                     </div>
-                </div>
+                    <div class="panel-footer">
+                        <div class="metric">
+                            <span class="metric-value">{basics.totalExperience}</span>
+                            <span class="metric-label">Experience</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">{work.length}</span>
+                            <span class="metric-label">Roles</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">{projects.length}</span>
+                            <span class="metric-label">Projects</span>
+                        </div>
+                    </div>
+                </aside>
             </div>
         </section>
 
-        <!-- Experience Section -->
-        <section id="experience">
+        <section id="experience" class="section-shell">
             <div class="container">
-                <h2>Experience</h2>
+                <div class="section-head">
+                    <p class="eyebrow">01 · Experience</p>
+                    <h2>Career narrative</h2>
+                    <p>Roles are framed around outcome, scale, and technical ownership.</p>
+                </div>
                 <div class="timeline">
                     {work.map(job => (
-                    <div class="timeline-item">
-                        <div class="job-header">
-                            <span class="job-title">{job.position}</span>
-                            <span class="job-company">@ {job.company}</span>
-                            <span class="job-meta">{job.startDate} — {job.endDate} | {job.location}</span>
-                        </div>
-                        <div class="job-summary">
-                            <ul set:html={job.summary.split('\n').map(line => line.trim()).filter(line => line).map(line => `<li>${line.replace(/^- /, '').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</li>`).join('')}></ul>
-                        </div>
-                    </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects">
-            <div class="container">
-                <h2>Selected Projects</h2>
-                <div class="project-grid">
-                    {projects.map(project => (
-                    <div class="project-card">
-                        <h3 class="project-title">
-                            <a href={project.url} target="_blank">{project.name} <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
-                        </h3>
-                        <p class="project-tech">{project.tech}</p>
-                        <p>{project.summary}</p>
-                    </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills">
-            <div class="container">
-                <h2>Technical Skills</h2>
-                <div class="skills-grid">
-                    {skills.map(category => (
-                    <div class="skill-category">
-                        <h3>{category.name}</h3>
-                        <div class="skill-tags">
-                            {category.keywords.map(keyword => (
-                            <span class="skill-tag">{keyword}</span>
-                            ))}
-                        </div>
-                    </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-
-        <!-- Interests Section -->
-        <section id="interests">
-            <div class="container">
-                <h2>Interests & Philosophy</h2>
-                <div class="interests-grid">
-                    {interests.map(interest => (
-                    <div class="interest-card">
-                        <h3>{interest.name}</h3>
-                        <div class="interest-tags">
-                            {interest.keywords.map(keyword => (
-                            <span class="interest-tag">{keyword}</span>
-                            ))}
-                        </div>
-                    </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-
-        <!-- Education & Awards Section -->
-        <section id="awards">
-            <div class="container">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
-                    <div>
-                        <h2>Education</h2>
-                        {education.map(edu => (
-                        <div style="margin-bottom: 2rem;">
-                            <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">{edu.institution}</h3>
-                            <p style="color: var(--accent-color);">{edu.area} ({edu.studyType})</p>
-                            <p style="font-size: 0.9rem; opacity: 0.8;">{edu.startDate} — {edu.endDate} · {edu.location}</p>
-                            <ul style="margin-top: 1rem; padding-left: 1.2rem; font-size: 0.95rem;">
-                                {edu.achievements.map(achievement => (
-                                <li set:html={achievement.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}></li>
+                        <article class="timeline-item">
+                            <div class="job-header">
+                                <div>
+                                    <h3 class="job-title">{job.position}</h3>
+                                    <p class="job-company">{job.company}</p>
+                                </div>
+                                <p class="job-meta">{job.startDate} — {job.endDate} · {job.location}</p>
+                            </div>
+                            <ul class="bullet-list">
+                                {job.summary.split('\n').map(line => line.trim()).filter(Boolean).map(line => (
+                                    <li set:html={line.replace(/^- /, '').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}></li>
                                 ))}
                             </ul>
-                        </div>
+                        </article>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section-shell">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow">02 · Projects</p>
+                    <h2>Selected work</h2>
+                    <p>Projects are presented as editorial cards with the stack visible but secondary.</p>
+                </div>
+                <div class="project-grid">
+                    {projects.map(project => (
+                        <article class="project-card">
+                            <div class="card-topline">
+                                <p class="card-kicker">Featured project</p>
+                                <a href={project.url} target="_blank" rel="noreferrer" class="card-link">Open</a>
+                            </div>
+                            <h3>{project.name}</h3>
+                            <p class="project-summary">{project.summary}</p>
+                            <p class="project-tech">{project.tech}</p>
+                        </article>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section-shell">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow">03 · Skills</p>
+                    <h2>Technical matrix</h2>
+                    <p>Capabilities are grouped into readable categories rather than badge walls.</p>
+                </div>
+                <div class="skills-grid">
+                    {skills.map(category => (
+                        <article class="skill-category">
+                            <h3>{category.name}</h3>
+                            <div class="skill-tags">
+                                {category.keywords.map(keyword => (
+                                    <span class="skill-tag">{keyword}</span>
+                                ))}
+                            </div>
+                        </article>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <section id="interests" class="section-shell">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow">04 · Interests</p>
+                    <h2>Research themes</h2>
+                    <p>These cards show technical taste and areas of ongoing curiosity.</p>
+                </div>
+                <div class="interests-grid">
+                    {interests.map(interest => (
+                        <article class="interest-card">
+                            <h3>{interest.name}</h3>
+                            <div class="skill-tags">
+                                {interest.keywords.map(keyword => (
+                                    <span class="interest-tag">{keyword}</span>
+                                ))}
+                            </div>
+                        </article>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <section id="awards" class="section-shell">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow">05 · Education and awards</p>
+                    <h2>Supporting evidence</h2>
+                    <p>Education and awards stay lighter than the main career story.</p>
+                </div>
+                <div class="split-grid">
+                    <div class="detail-column">
+                        <h3>Education</h3>
+                        {education.map(edu => (
+                            <article class="detail-card">
+                                <h4>{edu.institution}</h4>
+                                <p class="detail-meta">{edu.area} · {edu.studyType}</p>
+                                <p class="detail-meta">{edu.startDate} — {edu.endDate} · {edu.location}</p>
+                                <ul class="bullet-list">
+                                    {edu.achievements.map(achievement => (
+                                        <li set:html={achievement.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}></li>
+                                    ))}
+                                </ul>
+                            </article>
                         ))}
                     </div>
-                    
-                    <div>
-                        <h2>Awards & Honors</h2>
+                    <div class="detail-column">
+                        <h3>Awards</h3>
                         {awards.map(award => (
-                        <div class="award-item">
-                            <h4 style="margin-bottom: 0.5rem; font-size: 1rem;">{award.title}</h4>
-                            <p style="font-size: 0.9rem;">{award.summary}</p>
-                        </div>
+                            <article class="detail-card">
+                                <h4>{award.title}</h4>
+                                <p>{award.summary}</p>
+                            </article>
                         ))}
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
 
-    <footer id="contact">
-        <div class="container">
-            <p>&copy; {new Date().getFullYear()} {basics.name}. Built with Astro.</p>
+    <footer id="contact" class="site-footer section-shell">
+        <div class="container footer-inner">
+            <div>
+                <p class="eyebrow">Contact</p>
+                <h2>Let’s build something useful.</h2>
+            </div>
+            <div class="footer-links">
+                <a href={`mailto:${basics.email}`}>{basics.email}</a>
+                <a href={`tel:${basics.phone}`}>{basics.phone}</a>
+            </div>
+            <p class="copyright">&copy; {new Date().getFullYear()} {basics.name}. Built with Astro.</p>
         </div>
     </footer>
 
